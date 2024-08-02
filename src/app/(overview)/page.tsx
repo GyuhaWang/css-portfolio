@@ -1,5 +1,5 @@
 import Header from '@/app/ui/header/header';
-import HomeBody from '../ui/home/body';
+import HomeBody from '../ui/home';
 
 export default function Home() {
 	return (

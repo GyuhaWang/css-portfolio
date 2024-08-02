@@ -14,6 +14,7 @@ const Raining = () => {
 			};
 			drops.push(
 				<div
+					key={i}
 					style={dropStyle}
 					className="raindrop animate-rain"></div>
 			);

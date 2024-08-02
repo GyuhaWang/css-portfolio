@@ -13,6 +13,7 @@ const Snowing = () => {
 			};
 			drops.push(
 				<div
+					key={i}
 					style={dropStyle}
 					className="snow animate-snow"></div>
 			);

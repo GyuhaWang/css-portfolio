@@ -4,21 +4,23 @@ import FallLeaf from './leaf';
 import Raining from './raining';
 import Snowing from './snowing';
 const FallingImage = ({ index }: { index: number }) => {
-	const Image = useMemo(() => {
+	const Image = (index: number) => {
 		if (index == 0) {
-			return <CherryBlossom />;
+			return <CherryBlossom key={0} />;
 		}
 		if (index == 1) {
-			return <Raining />;
+			return <Raining key={1} />;
 		}
 		if (index == 2) {
-			return <FallLeaf />;
+			return <FallLeaf key={2} />;
 		}
 		if (index == 3) {
-			return <Snowing />;
+			return <Snowing key={3} />;
 		}
-	}, [index]);
-	return <div className="absolute h-full w-full overflow-hidden">{Image}</div>;
+	};
+	return (
+		<div className="absolute h-full w-full overflow-hidden">{Image(index)}</div>
+	);
 };
 
 const CherryBlossom = () => {

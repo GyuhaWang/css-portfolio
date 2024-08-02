@@ -1,5 +1,7 @@
 export default function Scroll() {
 	return (
-		<main className="flex flex-col  justify-between ">this is scroll </main>
+		<main className="flex flex-col grow justify-center  items-center">
+			작업중입니다.{' '}
+		</main>
 	);
 }

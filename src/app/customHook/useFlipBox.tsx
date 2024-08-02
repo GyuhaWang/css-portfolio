@@ -38,13 +38,15 @@ export default function useFlipBox(boxRef: MutableRefObject<null>) {
 	useEffect(() => {
 		if (isIntervalOn) {
 			let index = 0;
+			setCurrentIndex(index);
 			intervalId = setInterval(() => {
 				index = (index + 1) % WEATHER.length;
 				setCurrentIndex(index);
 				flipBoxs().then(() => updateBoxBackSide(index));
 			}, intervalTime);
+		} else {
+			clearInterval(intervalId);
 		}
-
 		return () => clearInterval(intervalId);
 	}, [isIntervalOn]);
 
@@ -65,10 +67,10 @@ export default function useFlipBox(boxRef: MutableRefObject<null>) {
 		}
 
 		return () => {
+			clearInterval(intervalId);
 			if (boxRef.current) {
 				observer.unobserve(boxRef.current);
 			}
-			clearInterval(intervalId);
 		};
 	}, []);
 
